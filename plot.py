@@ -44,6 +44,8 @@ def test_and_plot_graphs(
     with torch.no_grad():
         predicted = model(x_test, y_test, t_test)
 
+    # Move tensors to CPU before converting to NumPy
+    predicted = predicted.cpu().numpy()
 
     if k_steps_foward is None:
         u = predicted[:, 0:1].reshape((Nx, Ny))
