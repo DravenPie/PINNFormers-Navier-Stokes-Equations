@@ -104,12 +104,19 @@ def test_and_plot_graphs(
     # Ghia, U. K. N. G., Ghia, K. N., & Shin, C. T. (1982)
     #https://gist.github.com/ivan-pi/caa6c6737d36a9140fbcf2ea59c78b3c#file-ghiav-txt
     ghiav_bechmark = np.loadtxt("data/ghiav.txt")
+    ghiau_bechmark = np.loadtxt("data/ghiau.txt")
     
     ref_x =  ghiav_bechmark[:, 0:1] # x coord
     ref_v =  ghiav_bechmark[:, 1:2] # Re = 100
+
+    ref_y =  ghiau_bechmark[:, 0:1] # y coord
+    ref_u =  ghiau_bechmark[:, 1:2] # Re = 100
     
     fig, (ax4) = plt.subplots(1, 1)
     ax4.plot(ref_x, ref_v, 'ro', plot_grid[1,int(nop/2),:], v[int(nop/2),:])
+
+    fig, (ax4) = plt.subplots(1, 1)
+    ax4.plot(ref_y, ref_u, 'ro', plot_grid[1,int(nop/2),:], v[int(nop/2),:])
 
     if save_images:
         plt.savefig(f"images/{model_name}-benchmark.png")
