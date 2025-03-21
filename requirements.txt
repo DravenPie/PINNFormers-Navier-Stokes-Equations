@@ -6,3 +6,4 @@ scipy
 pdbpp
 basemap
 ipykernel
+deepxde
