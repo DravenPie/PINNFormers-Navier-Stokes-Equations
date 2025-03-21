@@ -4,7 +4,6 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 from util import make_time_sequence
 import torch
 
-
 def test_and_plot_graphs(
     model,
     device,
@@ -118,3 +117,44 @@ def test_and_plot_graphs(
     
     plt.show()
     
+
+def plot_loss_evolution(loss_path):
+    loss_track = np.load(loss_path)
+    
+    if loss_track.size == 0:
+        print("Empty or not found loss file.")
+        return
+
+    # Main plot: Loss evolution
+    plt.figure(figsize=(12, 6))
+    plt.plot(loss_track, label='Loss', color='royalblue')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.title('Loss Evolution During Training')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+    # # Zoom plot on the last epochs to check stagnation
+    # zoom_window = max(1, len(loss_track) // 10)  # Last 10% of epochs
+    # plt.figure(figsize=(12, 6))
+    # plt.plot(range(len(loss_track) - zoom_window, len(loss_track)), 
+    #          loss_track[-zoom_window:], color='orangered', label='Loss (Zoom)')
+    # plt.xlabel('Epochs (Last)')
+    # plt.ylabel('Loss')
+    # plt.title('Zoom on the Last Epochs')
+    # plt.legend()
+    # plt.grid(True)
+    # plt.show()
+
+    # Plot of loss variation between consecutive epochs
+    loss_diff = np.diff(loss_track)
+    plt.figure(figsize=(12, 6))
+    plt.plot(loss_diff, color='seagreen', label='Loss Variation')
+    plt.xlabel('Epochs')
+    plt.ylabel('Δ Loss')
+    plt.title('Loss Variation Between Consecutive Epochs')
+    plt.axhline(0, color='gray', linestyle='--')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
