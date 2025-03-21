@@ -135,17 +135,16 @@ def plot_loss_evolution(loss_path):
     plt.grid(True)
     plt.show()
 
-    # # Zoom plot on the last epochs to check stagnation
-    # zoom_window = max(1, len(loss_track) // 10)  # Last 10% of epochs
-    # plt.figure(figsize=(12, 6))
-    # plt.plot(range(len(loss_track) - zoom_window, len(loss_track)), 
-    #          loss_track[-zoom_window:], color='orangered', label='Loss (Zoom)')
-    # plt.xlabel('Epochs (Last)')
-    # plt.ylabel('Loss')
-    # plt.title('Zoom on the Last Epochs')
-    # plt.legend()
-    # plt.grid(True)
-    # plt.show()
+    # Zoom plot on the last epochs to check stagnation
+    zoom_window = max(1, len(loss_track) // 10)  # Last 10% of epochs
+    plt.figure(figsize=(12, 6))
+    plt.plot(range(len(loss_track) - zoom_window, len(loss_track)), loss_track[-zoom_window:], color='orangered', label='Loss (Zoom)')
+    plt.xlabel('Epochs (Last)')
+    plt.ylabel('Loss')
+    plt.title('Zoom on the Last Epochs')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
 
     # Plot of loss variation between consecutive epochs
     loss_diff = np.diff(loss_track)
