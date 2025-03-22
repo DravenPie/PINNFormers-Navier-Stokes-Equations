@@ -70,6 +70,7 @@ def test_and_plot_graphs(
     divider1 = make_axes_locatable(ax1)
     cax1 = divider1.append_axes("right", size="5%", pad=0.05)
     plt.colorbar(im1, cax=cax1)
+    plt.title(f"Velocity u, t={timestamp}")
     
     if save_images:
         plt.savefig(f"images/{model_name}-u.png")
@@ -82,6 +83,7 @@ def test_and_plot_graphs(
     divider2 = make_axes_locatable(ax2)
     cax2 = divider2.append_axes("right", size="5%", pad=0.05)
     plt.colorbar(im2, cax=cax2)
+    plt.title(f"Velocity v, t={timestamp}")
 
     if save_images:
         plt.savefig(f"images/{model_name}-v.png")
@@ -94,6 +96,7 @@ def test_and_plot_graphs(
     divider3 = make_axes_locatable(ax3)
     cax3 = divider3.append_axes("right", size="5%", pad=0.05)
     plt.colorbar(im3, cax=cax3)
+    plt.title(f"Pressure p, t={timestamp}")
 
     if save_images:
         plt.savefig(f"images/{model_name}-p.png")
@@ -114,12 +117,17 @@ def test_and_plot_graphs(
     
     fig, (ax4) = plt.subplots(1, 1)
     ax4.plot(ref_x, ref_v, 'ro', plot_grid[1,int(nop/2),:], v[int(nop/2),:])
-
-    fig, (ax4) = plt.subplots(1, 1)
-    ax4.plot(ref_y, ref_u, 'ro', plot_grid[1,int(nop/2),:], v[int(nop/2),:])
+    fig.suptitle('Comparison of v velocity against Ghia et al. (1982) benchmark values')
 
     if save_images:
-        plt.savefig(f"images/{model_name}-benchmark.png")
+        plt.savefig(f"images/{model_name}-v-benchmark.png")
+
+    fig, (ax4) = plt.subplots(1, 1)
+    ax4.plot(ref_y, ref_u, 'ro', plot_grid[1,int(nop/2),:], u[int(nop/2),:])
+    fig.suptitle('Comparison of u velocity against Ghia et al. (1982) benchmark values')
+
+    if save_images:
+        plt.savefig(f"images/{model_name}-u-benchmark.png")
 
     
     plt.show()
