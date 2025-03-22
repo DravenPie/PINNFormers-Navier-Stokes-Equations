@@ -3,6 +3,7 @@ import numpy as np
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from util import make_time_sequence
 import torch
+import pathlib
 
 def test_and_plot_graphs(
     model,
@@ -105,9 +106,10 @@ def test_and_plot_graphs(
     # Compare preditected v velocity against Ghia et al. (1982) bechmark values 
     
     # Ghia, U. K. N. G., Ghia, K. N., & Shin, C. T. (1982)
-    #https://gist.github.com/ivan-pi/caa6c6737d36a9140fbcf2ea59c78b3c#file-ghiav-txt
-    ghiav_bechmark = np.loadtxt("data/ghiav.txt")
+    # https://gist.github.com/ivan-pi/3e9326d18a366ffe6a8e5bfda6353219#file-ghiau-txt
+    # https://gist.github.com/ivan-pi/caa6c6737d36a9140fbcf2ea59c78b3c#file-ghiav-txt
     ghiau_bechmark = np.loadtxt("data/ghiau.txt")
+    ghiav_bechmark = np.loadtxt("data/ghiav.txt")
     
     ref_x =  ghiav_bechmark[:, 0:1] # x coord
     ref_v =  ghiav_bechmark[:, 1:2] # Re = 100
@@ -133,12 +135,14 @@ def test_and_plot_graphs(
     plt.show()
     
 
-def plot_loss_evolution(loss_path):
+def plot_loss_evolution(loss_path, save_images=True):
     loss_track = np.load(loss_path)
     
     if loss_track.size == 0:
         print("Empty or not found loss file.")
         return
+
+    model_name = pathlib.Path(loss_path).stem 
 
     # Main plot: Loss evolution
     plt.figure(figsize=(12, 6))
@@ -148,7 +152,10 @@ def plot_loss_evolution(loss_path):
     plt.title('Loss Evolution During Training')
     plt.legend()
     plt.grid(True)
-    plt.show()
+
+    if save_images:
+        plt.savefig(f"images/{model_name}-loss.png")
+
 
     # Zoom plot on the last epochs to check stagnation
     zoom_window = max(1, len(loss_track) // 10)  # Last 10% of epochs
@@ -159,7 +166,10 @@ def plot_loss_evolution(loss_path):
     plt.title('Zoom on the Last Epochs')
     plt.legend()
     plt.grid(True)
-    plt.show()
+
+    if save_images:
+        plt.savefig(f"images/{model_name}-last-epochs.png")
+
 
     # Plot of loss variation between consecutive epochs
     loss_diff = np.diff(loss_track)
@@ -171,4 +181,9 @@ def plot_loss_evolution(loss_path):
     plt.axhline(0, color='gray', linestyle='--')
     plt.legend()
     plt.grid(True)
+
+    if save_images:
+        plt.savefig(f"images/{model_name}-loss-variation.png")
+
+    
     plt.show()
