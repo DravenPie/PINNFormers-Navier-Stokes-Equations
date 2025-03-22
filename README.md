@@ -36,7 +36,7 @@ Below are the key references and resources used in this project:
 
 - PINNsFormer:
 
-    (Hypothetical reference) Transformer-based architectures for physics-informed learning. Journal of Machine Learning Research, 2023. [Link to paper if available]
+    Zhao, Z., Ding, X. & Prakash, B. A. (2024). PINNsFormer: A Transformer-Based Framework For Physics-Informed Neural Networks. https://arxiv.org/abs/2307.11833v3
 
 - Lid-Driven Cavity Flow:
 
