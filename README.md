@@ -1,30 +1,69 @@
 # PINNs vs PINNsFormer for Navier-Stokes Equations: Transient Lid-Driven Cavity Flow
 
-This repository contains code to compare the performance of Physics-Informed Neural Networks (PINNs) and PINNsFormer for solving a special case of the Navier-Stokes equations, the transient lid-driven cavity flow problem. The lid-driven cavity flow is a classic benchmark problem in computational fluid dynamics (CFD), and this project aims to explore how traditional PINNs and the more recent PINNsFormer (Physics-Informed Transformer) perform in this context. 
+This repository contains code to compare the performance of Physics-Informed Neural Networks (PINNs) and PINNsFormer for solving a special case of the Navier-Stokes equations: the transient lid-driven cavity flow problem. The lid-driven cavity flow is a classic benchmark problem in computational fluid dynamics (CFD), and this project aims to explore how traditional PINNs and the more recent PINNsFormer (Physics-Informed Transformer) perform in this context.
 
-The benchmark was created by Ghia et al. (1982), but since that paper deals with the stationary version of the problem and Transforms (and PINNsFormer by extension) exceed at sequential data, we added a time-dependence and initial conditions. We also provide a paper that describes how PINNsFormer incoporated many ideas from the original Transformers and how they have improved PINNsFormer's hability to better deal with sequencial data.
+The benchmark was created by Ghia et al. (1982). However, since that paper addresses the stationary version of the problem and Transformers (and PINNsFormer by extension) excel at sequential data, we added a time dependency and initial conditions. Additionally, we provide a paper that describes how PINNsFormer incorporates many ideas from the original Transformers and how these innovations improve PINNsFormer's ability to handle sequential data.
 
 ## Instructions to Execute the Notebooks
 
 ### 1. Clone the Repository
 
-First, clone the repository to your local machine:
-
+Clone the repository to your local machine and open its root directory:
 ```bash
 git clone https://github.com/your-username/PINNFormers-Navier-Stokes-Equations.git
 cd PINNFormers-Navier-Stokes-Equations
 ```
+
 ### 2. Set Up the Environment
 
-Ensure you have Python 3.8 or later installed. Then, install the required dependencies using pip:
+Ensure you have Python 3.8 or later installed. Then:
+#### a. Create a Virtual Environment for Python3
+```bash
+python3 -m venv env
+```
 
+#### b. Activate the Virtual Environment
+```bash
+source env/bin/activate
+```
+
+#### c. Install Dependencies
+If you have a requirements.txt file:
 ```bash
 pip install -r requirements.txt
 ```
+If you don't have one, create it and install:
+```bash
+pip freeze > requirements.txt
+pip install -r requirements.txt
+```
+
+#### d. Open and Run the Notebooks
+Launch your preferred IDE, such as [Visual Studio Code](https://code.visualstudio.com/download), [Jupyter Notebook](https://jupyter.org/install), or any other IDE that supports .ipynb files. Then, run the notebooks directly from the IDE.
+
+### Extra commands:
+
+List all installed packages:
+```bash
+pip list
+```
+
+Deactivate the virtual environment:
+```bash
+deactivate
+```
+
+## Instructions to Download the article
+...
+
+## Authors
+
+- **[@ginbar - Gabriel Barboza](https://github.com/ginbar)**
+- **[@DravenPie - Vinicius Pereira](https://github.com/DravenPie)**
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the [MIT License](./LICENSE). See the LICENSE file for details.
 
 ## Bibliography
 
