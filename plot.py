@@ -108,8 +108,8 @@ def test_and_plot_graphs(
     # Ghia, U. K. N. G., Ghia, K. N., & Shin, C. T. (1982)
     # https://gist.github.com/ivan-pi/3e9326d18a366ffe6a8e5bfda6353219#file-ghiau-txt
     # https://gist.github.com/ivan-pi/caa6c6737d36a9140fbcf2ea59c78b3c#file-ghiav-txt
-    ghiau_bechmark = np.loadtxt("benchmark/ghiau.txt")
-    ghiav_bechmark = np.loadtxt("benchmark/ghiav.txt")
+    ghiau_bechmark = np.loadtxt("data/ghiau.txt")
+    ghiav_bechmark = np.loadtxt("data/ghiav.txt")
     
     ref_x =  ghiav_bechmark[:, 0:1] # x coord
     ref_v =  ghiav_bechmark[:, 1:2] # Re = 100
