@@ -16,10 +16,35 @@ cd PINNFormers-Navier-Stokes-Equations
 ```
 ### 2. Set Up the Environment
 
-Ensure you have Python 3.8 or later installed. Then, install the required dependencies using pip:
+Ensure you have Python 3.8 or later installed. Then:
+#### a. Create a virtual environment for python3
+```bash
+python3 -m venv env
+```
 
+#### b. Activate the virtual environment
+```bash
+source env/bin/activate
+```
+
+#### c. Create a requirements.txt file
+```bash
+pip freeze > requirements.txt
+```
+
+#### d. Install all the packages from the requirements.txt file
 ```bash
 pip install -r requirements.txt
+```
+
+If you want to list all the installed packages in the virtual environment:
+```bash
+pip list
+```
+
+If you want to deactivate the virtual environment:
+```bash
+deactivate
 ```
 
 ## License
