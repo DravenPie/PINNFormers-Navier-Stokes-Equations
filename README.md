@@ -12,7 +12,6 @@ First, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/your-username/PINNFormers-Navier-Stokes-Equations.git
-cd PINNFormers-Navier-Stokes-Equations
 ```
 ### 2. Set Up the Environment
 
@@ -37,6 +36,11 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
+#### d. Open the notebooks
+Open the repository in [a]{https://code.visualstudio.com/download}
+
+Extras:
+
 If you want to list all the installed packages in the virtual environment:
 ```bash
 pip list
@@ -47,9 +51,14 @@ If you want to deactivate the virtual environment:
 deactivate
 ```
 
-## License
+## Autores
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+- **[ginbar](https://github.com/ginbar)**
+- **[@DravenPie](https://github.com/DravenPie)**
+
+## Licença
+
+Este projeto está sob a licença [MIT](./LICENSE).
 
 ## Bibliography
 
