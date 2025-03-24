@@ -6,7 +6,7 @@ This repository contains code to compare the performance of Physics-Informed Neu
 
 The benchmark was created by Ghia et al. (1982). However, since that paper addresses the stationary version of the problem and Transformers (and PINNsFormer by extension) excel at sequential data, we added a time dependency and initial conditions. Additionally, we provide a paper that describes how PINNsFormer incorporates many ideas from the original Transformers and how these innovations improve PINNsFormer's ability to handle sequential data.
 
-## Instructions to Execute the Notebooks
+## Running the Notebooks
 
 ### 1. Clone the Repository
 
@@ -55,12 +55,12 @@ Deactivate the virtual environment:
 deactivate
 ```
 
-## Instructions to Download the Article
+## Access our Paper
 The paper is available at: [PINNFormers for Navier Stokes Equations](./PINNFormers_for_Navier_Stokes_Equations.pdf)
 
 You can download it from the GitHub webpage or use the following command:
 ```bash
-wget https://github.com/DravenPie/PINNFormers-Navier-Stokes-Equations/blob/main/PINNFormers_for_Navier_Stokes_Equations.pdf
+wget https://github.com/DravenPie/PINNFormers-Navier-Stokes-Equations/raw/main/PINNFormers_for_Navier_Stokes_Equations.pdf
 ```
 
 ## Authors
